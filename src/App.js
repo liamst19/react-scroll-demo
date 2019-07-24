@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 
 import SlideInBoxes from './component.SlideInBoxes.js';
+import ScrollMarquee from './component.ScrollMarquee.js';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <header className="App-header">
           <h1 className="header-title">Scroll Demo</h1>
       </header>
+      <ScrollMarquee />
       {items}
     </div>
   );

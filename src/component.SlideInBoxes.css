@@ -1,5 +1,5 @@
 
-.Section1{
+.SlideInBoxes{
     display: block;
     height: 75vw;
     background: #cccccc;
@@ -43,7 +43,7 @@
     }
 }
 
-.Section1 .box{
+.SlideInBoxes .box{
     width: 35vw;
     height: 35vw;
     vertical-align: middle;
@@ -53,27 +53,27 @@
     color: #DDDDDD;
 }
 
-.Section1 .box.left{
+.SlideInBoxes .box.left{
     float: left;
     opacity: 0;
     margin-left: 10vw;
 }
 
-.Section1.animate-show .left{
+.SlideInBoxes.animate-show .left{
     animation: section1-left-box-show 0.5s forwards;
 }
 
-.Section1 .box.right{
+.SlideInBoxes .box.right{
     float: right;
     opacity: 0;
     margin-right: 10vw;
 }
 
-.Section1.animate-show .right{
+.SlideInBoxes.animate-show .right{
     animation: section1-right-box-show 0.5s forwards;
 }
 
-.Section1.animate-hide .box
+.SlideInBoxes.animate-hide .box
 {
     animation: section1-box-hide 0.5s forwards;
 }

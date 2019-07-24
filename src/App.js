@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 
-import Section1 from './component.section1.js';
+import SlideInBoxes from './component.SlideInBoxes.js';
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
   // Rendering more than one Section1 elements
   const items = [];
   for(let i = 0; i < 6; i++){
-    items.push(<Section1 key={ 'Section_' + i} />);
+    items.push(<SlideInBoxes key={ 'Section_' + i} />);
   };
 
   return (

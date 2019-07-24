@@ -8,27 +8,36 @@ function Section1Box(props) {
 function Section1() {
 
   // Refs -------------------------
-  const element = useRef(null);
+  const refElement = useRef(null);
+
+  // Check to see if element is in viewport
+  function isInView(element) {
+    // Get the dimensions of Section element
+    const elRect = element.current.getBoundingClientRect();
+
+    return (elRect != null)
+      && (elRect.top <= 150
+          || elRect.bottom <= document.documentElement.clientHeight);
+  };
 
   // States -----------------------
   let initialState = {
-    isInView: false
+    showBoxes: false,
   };
   const [state, setState] = useState(initialState);
 
   // Hooks ------------------------
   useEffect(() => {
 
+    setState({
+      showBoxes: isInView(refElement),
+    });
+
     // Event Listener
     let scrollListener = () => {
-      // Get the dimensions of Section element
-      const elRect = element.current.getBoundingClientRect();
-      if(elRect){
-        setState({
-          // Check if the element is inside viewport
-          isInView: (elRect.top <= 150 || elRect.bottom <= document.documentElement.clientHeight),
-        });
-      };
+      setState({
+        showBoxes: isInView(refElement),
+      });
     };
 
     // Add Event Listener
@@ -43,7 +52,7 @@ function Section1() {
   // ------------------------------
   // Render Component -------------
   return (
-      <div className={state.isInView ? 'Section1 animate-show' : 'Section1 animate-hide'}  ref={element}>
+      <div className={state.showBoxes ? 'Section1 animate-show' : 'Section1 animate-hide'}  ref={refElement}>
       <Section1Box boxClass="left"  text="" />
       <Section1Box boxClass="right" text="" />
       </div>

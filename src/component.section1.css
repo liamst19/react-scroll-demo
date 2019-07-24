@@ -5,18 +5,11 @@ p.coords{
 }
 
 .Section1{
-    /* display: flex; */
+    display: block;
     height: 250px;
     background: #cccccc;
-    padding: 50px 0;
-    margin-top: 750px;
-    margin-bottom: 500px;
-}
-
-.Section1 .box{
-    width: 200px;
-    height: 175px;
-    padding-top: 25px;
+    padding: 100px 0;
+    margin: 100px 0;
     text-align: center;
 }
 
@@ -27,7 +20,7 @@ p.coords{
     }
 
     to{
-        margin-left: 250px;
+        margin-left: 200px;
         opacity: 1;
     }
 }
@@ -39,7 +32,7 @@ p.coords{
     }
 
     to{
-        margin-right: 250px;
+        margin-right: 200px;
         opacity: 1;
     }
 }
@@ -54,30 +47,36 @@ p.coords{
     }
 }
 
-.Section1 .left{
-    background: #ffccff;
-    float: left;
-    opacity: 0;
-    margin-left: 250px;
+.Section1 .box{
+    width: 250px;
+    height: 250px;
+    vertical-align: middle;
+    font-size: 60px;
+    background: #222222;
+    color: #DDDDDD;
 }
 
-.Section1 .animate-show .left{
+.Section1 .box.left{
+    float: left;
+    opacity: 0;
+    margin-left: 200px;
+}
+
+.Section1.animate-show .left{
     animation: section1-left-box-show 0.5s forwards;
 }
 
-.Section1 .right{
-    background: #ffffcc;
+.Section1 .box.right{
     float: right;
     opacity: 0;
-    margin-right: 250px;
+    margin-right: 200px;
 }
 
-.Section1 .animate-show .right{
+.Section1.animate-show .right{
     animation: section1-right-box-show 0.5s forwards;
 }
 
-.Section1 .animate-hide .left,
-.Section1 .animate-hide .right
+.Section1.animate-hide .box
 {
     animation: section1-box-hide 0.5s forwards;
 }

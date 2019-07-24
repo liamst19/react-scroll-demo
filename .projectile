@@ -1,5 +1,6 @@
 
+- /.git
+- /build
 - /node_modules
 - /public
-- /.git
 - package-lock.json

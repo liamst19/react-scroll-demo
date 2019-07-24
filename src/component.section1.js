@@ -1,64 +1,52 @@
-import React, { useEffect, useState, useRef} from 'react'
-import './Section1.css'
+import React, { useEffect, useState, useRef } from 'react'
+import './component.section1.css'
 
-function Section1BoxLeft(props) {
-  return(<div className="box left">{props.text}</div>);
-}
-
-function Section1BoxRight(props) {
-  return(<div className="box right">{props.text}</div>);
-}
-
-function Section1Boxes(props){
-  return(
-    <div className={ props.show ? 'animate-show' : 'animate-hide' }>
-      <Section1BoxLeft text="left" />
-      <Section1BoxRight text="right" />
-    </div>
-  );
+function Section1Box(props) {
+  return(<div className={ 'box ' + props.boxClass}>{props.text}</div>);
 }
 
 function Section1() {
 
   // Refs -------------------------
-  const sectionElement = useRef(null);
+  const element = useRef(null);
+
   // States -----------------------
-  var initialState = {
-    isInView: false,
-    rect: null
+  let initialState = {
+    isInView: false
   };
   const [state, setState] = useState(initialState);
 
   // Hooks ------------------------
   useEffect(() => {
-    // const rect = this.selector.current.getBoundingClientRect();
 
-    var scrollListener = function(){
-      const elRect = sectionElement.current.getBoundingClientRect();
+    // Event Listener
+    let scrollListener = () => {
+      // Get the dimensions of Section element
+      const elRect = element.current.getBoundingClientRect();
       if(elRect){
         setState({
-          rect: elRect,
+          // Check if the element is inside viewport
           isInView: (elRect.top <= 150 || elRect.bottom <= document.documentElement.clientHeight),
         });
       };
-      // setState({
-      //   topPos: rect.top,
-      //   bottomPos: rect.bottomPos,
-      // });
     };
 
+    // Add Event Listener
     window.addEventListener('scroll', scrollListener);
 
+    // Remove Event Listener upon component cleanup
     return function cleanup() {
       window.removeEventListener('scroll', scrollListener);
     };
   });
-  // ------------------------------
 
+  // ------------------------------
+  // Render Component -------------
   return (
-    <div className="Section1" ref={sectionElement}>
-      <Section1Boxes show={state.isInView} />
-    </div>
+      <div className={state.isInView ? 'Section1 animate-show' : 'Section1 animate-hide'}  ref={element}>
+      <Section1Box boxClass="left"  text="" />
+      <Section1Box boxClass="right" text="" />
+      </div>
   );
 }
 

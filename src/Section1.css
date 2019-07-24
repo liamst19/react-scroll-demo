@@ -1,0 +1,83 @@
+p.coords{
+    position: fixed;
+    left: 10px;
+    top: 10px;
+}
+
+.Section1{
+    /* display: flex; */
+    height: 250px;
+    background: #cccccc;
+    padding: 50px 0;
+    margin-top: 750px;
+    margin-bottom: 500px;
+}
+
+.Section1 .box{
+    width: 200px;
+    height: 175px;
+    padding-top: 25px;
+    text-align: center;
+}
+
+@keyframes section1-left-box-show{
+    from{
+        margin-left:  0px;
+        opacity: 0;
+    }
+
+    to{
+        margin-left: 250px;
+        opacity: 1;
+    }
+}
+
+@keyframes section1-right-box-show{
+    from{
+        margin-right:  0px;
+        opacity: 0;
+    }
+
+    to{
+        margin-right: 250px;
+        opacity: 1;
+    }
+}
+
+@keyframes section1-box-hide{
+    from{
+        opacity: 1;
+    }
+
+    to{
+        opacity: 0;
+    }
+}
+
+.Section1 .left{
+    background: #ffccff;
+    float: left;
+    opacity: 0;
+    margin-left: 250px;
+}
+
+.Section1 .animate-show .left{
+    animation: section1-left-box-show 0.5s forwards;
+}
+
+.Section1 .right{
+    background: #ffffcc;
+    float: right;
+    opacity: 0;
+    margin-right: 250px;
+}
+
+.Section1 .animate-show .right{
+    animation: section1-right-box-show 0.5s forwards;
+}
+
+.Section1 .animate-hide .left,
+.Section1 .animate-hide .right
+{
+    animation: section1-box-hide 0.5s forwards;
+}

@@ -1,42 +1,33 @@
-import React, { useEffect, useState, useRef } from 'react'
-import './component.SlideInBoxes.css'
+import React, { useEffect, useState, useRef } from 'react';
+import { elementIsInView } from './util.js';
+import './component.SlideInBoxes.css';
 
 function SlideInBox(props) {
-  return(<div className={ 'box ' + props.boxClass}>{props.text}</div>);
+  return(<div className={ 'box ' + props.boxClass }>{ props.text }</div>);
 }
 
 function SlideInBoxes() {
+  const viewportOffset = 150;
 
   // Refs -------------------------
   const refElement = useRef(null);
 
-  // Check to see if element is in viewport
-  function isInView(element) {
-    // Get the dimensions of Section element
-    const elRect = element.current.getBoundingClientRect();
-
-    return (elRect != null)
-      && (elRect.top <= 150
-          || elRect.bottom <= document.documentElement.clientHeight);
-  };
-
   // States -----------------------
-  let initialState = {
+  const [state, setState] = useState({
     showBoxes: false,
-  };
-  const [state, setState] = useState(initialState);
+  });
 
   // Hooks ------------------------
   useEffect(() => {
 
     setState({
-      showBoxes: isInView(refElement),
+      showBoxes: elementIsInView(refElement, viewportOffset),
     });
 
     // Event Listener
     let scrollListener = () => {
       setState({
-        showBoxes: isInView(refElement),
+        showBoxes: elementIsInView(refElement, viewportOffset),
       });
     };
 

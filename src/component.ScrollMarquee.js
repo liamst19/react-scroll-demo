@@ -46,9 +46,6 @@ function ScrollMarquee(props) {
 
   // Hooks ------------------------
   useEffect(() => {
-    // Initialize margin
-    // const initialMargin = document.documentElement.clientWidth - 10;
-    // updateMargin(initialMargin, window.scrollY);
 
     // Event Listener
     let scrollListener = () => {

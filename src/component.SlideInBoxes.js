@@ -3,7 +3,11 @@ import { elementIsInView } from './util.js';
 import './component.SlideInBoxes.css';
 
 function SlideInBox(props) {
-  return(<div className={ 'box ' + props.boxClass }>{ props.text }</div>);
+  return(<div className={ 'box ' + props.boxClass }>
+         <span className="boxText">
+         { props.text }
+         </span>
+         </div>);
 }
 
 function SlideInBoxes() {
@@ -44,8 +48,8 @@ function SlideInBoxes() {
   // Render Component -------------
   return (
       <div className={state.showBoxes ? 'SlideInBoxes animate-show' : 'SlideInBoxes animate-hide'}  ref={refElement}>
-      <SlideInBox boxClass="left"  text="" />
-      <SlideInBox boxClass="right" text="" />
+      <SlideInBox boxClass="left"  text="aw" />
+      <SlideInBox boxClass="right" text="yeah." />
       </div>
   );
 }

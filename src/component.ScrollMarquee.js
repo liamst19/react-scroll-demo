@@ -70,11 +70,11 @@ function ScrollMarquee(props) {
   // ------------------------------
   // Render Component -------------
   return (
-      <div className="ScrollMarquee" style={ state.style } ref={ refElement }>
+    <div className="ScrollMarquee" style={ state.style } ref={ refElement }>
       <div className="marqueeText">
-      { props.text }
-       </div>
+        { props.text }
       </div>
+    </div>
   );
 }
 

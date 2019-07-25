@@ -10,3 +10,15 @@ export const elementIsInView = (element, offset = 0) => {
         || elRect.bottom <= viewportBottom);
 };
 
+export const getFile = (url) => {
+
+  let retJson = null;
+
+  // Fetch content from url
+  fetch(url)
+    .then((response) => {
+      retJson = response.json();
+    });
+
+  return retJson;
+};

@@ -3,6 +3,7 @@ import './App.css';
 
 import SlideInBoxes from './component.SlideInBoxes.js';
 import ScrollMarquee from './component.ScrollMarquee.js';
+import JapaneseText from './component.JapaneseText.js';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <ScrollMarquee motionScale="0.5" text="rightward text motion." direction="right" />
       </div>
       <SlideInBoxes />
+      <JapaneseText url="wagahai.json" />
     </div>
   );
 }

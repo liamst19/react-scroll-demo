@@ -1,8 +1,8 @@
 
 .ScrollMarquee .marqueeText{
-    font-family: 'Playfair Display';
-    font-size: 18vw;
+    font-family: 'Work Sans';
+    font-size: 20vw;
     font-weight: bold;
-    line-height: 0.9em;
-    color: #000000;
+    line-height: 0.8em;
+    color: #1a0000;
 }

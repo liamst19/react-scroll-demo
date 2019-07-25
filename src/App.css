@@ -5,14 +5,15 @@
 
 .App-header {
     background: #333333;
-    height: 50vh;
+    height: 10vh;
     margin: 0;
-    padding: 25vh;
+    padding: 10vh;
     vertical-align: middle;
     text-align: center;
 }
 
 .header-title{
+    font-family: 'Roboto';
     font-size: 80px;
     color: #ffffff;
     margin: 0;
@@ -21,4 +22,13 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.ScrollMarqueeContainer{
+    margin-top: 5vh;
+    height: 40vw;
+    background: #eeeeee;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-top: 10vh;
 }

@@ -1,15 +1,8 @@
 
-
-.ScrollMarquee{
-    height: 40vw;
-    background: #eeeeee;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
 .ScrollMarquee .marqueeText{
-    margin-top: 10vh;
-    font-size: 12vw;
+    font-family: 'Playfair Display';
+    font-size: 18vw;
     font-weight: bold;
+    line-height: 0.9em;
     color: #000000;
 }

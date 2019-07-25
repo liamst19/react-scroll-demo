@@ -2,10 +2,19 @@ import React, { useEffect, useState, useRef } from 'react';
 import { elementIsInView } from './util.js';
 import './component.ScrollMarquee.css';
 
-function ScrollMarquee() {
+function ScrollMarquee(props) {
   const viewportOffset = 150;
-  const marqueeText = 'this is a text.';
-  const motionScale = 0.6;
+
+  // Motion Scaling
+  let motionScale = 1;
+  let initMargin = 0;
+  if(props.direction == 'left' && props.motionScale != 0){
+    motionScale = props.motionScale;
+    initMargin = 25;
+  } else if(props.direction == 'right' && props.motionScale != 0){
+    motionScale = -1 * props.motionScale;
+    initMargin = -500;
+  }
 
   // Refs -------------------------
   const refElement = useRef(null);
@@ -13,9 +22,9 @@ function ScrollMarquee() {
   // States -----------------------
   const [state, setState] = useState({
     lastScrollY: 0,
-    margin: 750,
+    margin: initMargin,
     style: {
-      marginLeft: 750,
+      marginLeft: initMargin,
     },
   });
 
@@ -64,12 +73,10 @@ function ScrollMarquee() {
   // ------------------------------
   // Render Component -------------
   return (
-      <div className="ScrollMarquee">
-      <div className="marquee" style={ state.style } ref={ refElement }>
+      <div className="ScrollMarquee" style={ state.style } ref={ refElement }>
       <div className="marqueeText">
-      { marqueeText }
+      { props.text }
        </div>
-      </div>
       </div>
   );
 }

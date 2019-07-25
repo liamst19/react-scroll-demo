@@ -3,11 +3,13 @@
 .ScrollMarquee{
     height: 40vw;
     background: #eeeeee;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.ScrollMarquee .marquee{
-    float: left;
-    font: 40vw;
+.ScrollMarquee .marqueeText{
+    margin-top: 10vh;
+    font-size: 12vw;
+    font-weight: bold;
     color: #000000;
-    margin-left: 40vw; /* this will be reset by js */
 }

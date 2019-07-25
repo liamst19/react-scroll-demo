@@ -4,50 +4,51 @@ import './component.ScrollMarquee.css';
 
 function ScrollMarquee() {
   const viewportOffset = 150;
-  const marqueeText = 'marquee text.';
+  const marqueeText = 'this is a text.';
+  const motionScale = 0.6;
 
   // Refs -------------------------
   const refElement = useRef(null);
 
   // States -----------------------
   const [state, setState] = useState({
-    lastScrollPosY: 0,
-    marqueeMargin: 0,
+    lastScrollY: 0,
+    margin: 750,
+    style: {
+      marginLeft: 750,
+    },
   });
 
   // Functions --------------------
 
-  // Calculates how much marquee should move on scroll
-  let calculateMargin = (margin) => {
-    const scale = 10;
-    return (margin * scale);
-  };
-
   // Update marquee position
   let updateMargin = (margin, scrollPosY) => {
     // Set element margin
-    refElement.style.marginLeft = margin;
+    refElement.current.style.marginLeft = margin;
     // Initialize margin when component is loaded
     setState({
-      marqueeMargin: margin,
-      lastScrollPosY: scrollPosY,
+      lastScrollY: scrollPosY,
+      margin: margin,
+      style: {
+        marginLeft: margin,
+      }
     });
   };
 
   // Hooks ------------------------
   useEffect(() => {
     // Initialize margin
-    const initialMargin = documentElement.clientWidth - 10;
-    updateMargin(initialMargin, window.scrollY);
+    // const initialMargin = document.documentElement.clientWidth - 10;
+    // updateMargin(initialMargin, window.scrollY);
 
     // Event Listener
     let scrollListener = () => {
       // Only move the marquee when the element is visible inside viewport
       if(elementIsInView(refElement, viewportOffset)){
         const currentScrollY = window.scrollY;
-        const motion = currentScrollY - state.lastScrollPosY;
-        const margin = calculateMargin(state.marqueeMargin - motion);
-        updateMargin(margin, currentScrollY);
+        const motion = (currentScrollY - state.lastScrollY) * motionScale;
+        const newMargin = state.margin - motion;
+        updateMargin(newMargin, currentScrollY);
       };
     };
 
@@ -58,13 +59,17 @@ function ScrollMarquee() {
     return function cleanup() {
       window.removeEventListener('scroll', scrollListener);
     };
-  });
+  }, [state.margin, state.lastScrollY]);
 
   // ------------------------------
   // Render Component -------------
   return (
       <div className="ScrollMarquee">
-      <div className="marquee" ref={ refElement }>{ marqueeText }</div>
+      <div className="marquee" style={ state.style } ref={ refElement }>
+      <div className="marqueeText">
+      { marqueeText }
+       </div>
+      </div>
       </div>
   );
 }

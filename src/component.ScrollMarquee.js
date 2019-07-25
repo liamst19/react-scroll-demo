@@ -8,10 +8,10 @@ function ScrollMarquee(props) {
   // Motion Scaling
   let motionScale = 1;
   let initMargin = 0;
-  if(props.direction == 'left' && props.motionScale != 0){
+  if(props.direction === 'left' && props.motionScale !== 0){
     motionScale = props.motionScale;
     initMargin = 25;
-  } else if(props.direction == 'right' && props.motionScale != 0){
+  } else if(props.direction === 'right' && props.motionScale !== 0){
     motionScale = -1 * props.motionScale;
     initMargin = -500;
   }
@@ -68,7 +68,7 @@ function ScrollMarquee(props) {
     return function cleanup() {
       window.removeEventListener('scroll', scrollListener);
     };
-  }, [state.margin, state.lastScrollY]);
+  }, [state.margin, state.lastScrollY, motionScale]);
 
   // ------------------------------
   // Render Component -------------

@@ -24,7 +24,7 @@ function JapaneseText(props) {
     return paragraphs;
   };
 
-  fetch(process.env.PUBLIC_URL + props.url)
+  fetch(process.env.PUBLIC_URL + '/' + props.url)
     .then(response => {
       return response.json();
     })

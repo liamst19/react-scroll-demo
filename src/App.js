@@ -22,7 +22,10 @@ function App() {
       <header className="App-header">
           <h1 className="header-title">Scroll Demo</h1>
       </header>
-      <ScrollMarquee />
+      <div className="ScrollMarqueeContainer">
+      <ScrollMarquee motionScale="0.6" text="this is a text." direction="left" />
+      <ScrollMarquee motionScale="0.5" text="this is another text." direction="right" />
+      </div>
       {items}
     </div>
   );

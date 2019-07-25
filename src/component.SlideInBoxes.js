@@ -38,7 +38,7 @@ function SlideInBoxes() {
     return function cleanup() {
       window.removeEventListener('scroll', scrollListener);
     };
-  });
+  }, []);
 
   // ------------------------------
   // Render Component -------------

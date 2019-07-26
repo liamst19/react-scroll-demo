@@ -18,9 +18,12 @@ function JapaneseText(props) {
   let getParagraphs = (text) => {
     let paragraphs = [];
     let ps = text.split('/n');
-    ps.forEach((p) => {
-      paragraphs.push(<JpTxtParagraph text={ p } />);
-    });
+    for (let i = 0; i < 7; i++){
+      paragraphs.push(<JpTxtParagraph text={ ps[i] } />);
+    };
+    // ps.forEach((p) => {
+    //   paragraphs.push(<JpTxtParagraph text={ p } />);
+    // });
     return paragraphs;
   };
 

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import './App.css';
 
-import SlideInBoxes from './component.SlideInBoxes.js';
+import SlideInBoxes  from './component.SlideInBoxes.js';
 import ScrollMarquee from './component.ScrollMarquee.js';
-import JapaneseText from './component.JapaneseText.js';
+import JapaneseText  from './component.JapaneseText.js';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
       </header>
       <div className="ScrollMarqueeContainer">
       <ScrollMarquee motionScale="0.6" text="text is moving leftward." direction="left" />
-      <ScrollMarquee motionScale="0.5" text="rightward text motion." direction="right" />
+      <ScrollMarquee motionScale="0.5" text="rightward text motion."   direction="right" />
       </div>
       <SlideInBoxes />
       <JapaneseText url="wagahai.json" />

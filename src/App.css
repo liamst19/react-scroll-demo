@@ -41,9 +41,14 @@
     writing-mode: vertical-rl;
     text-orientation: upright;
     float: right;
-    column-width: 27em;
-    column-gap: 2rem;
     width: 90vw;
+
+    /* -webkit-column-width: 23em; /\* Chrome, Safari, Opera *\/ */
+    /* -webkit-column-gap: 2rem; */
+    /* -moz-column-width: 23em; /\* Firefox *\/ */
+    /* -moz-column-gap: 2rem; */
+    column-width: 20em;
+    column-gap:   2em;
 }
 
 .JapaneseText .wrapper p{
@@ -53,4 +58,5 @@
     letter-spacing: 0.045em;
     line-height: 1.65em;
     margin: 0 1em;
+    /* height: 25em; */
 }

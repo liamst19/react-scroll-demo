@@ -22,6 +22,7 @@
 }
 
 .ScrollMarqueeContainer{
+    display: block;
     margin: 10vh 0;
     height: 40vw;
     background: #f3f3ee;

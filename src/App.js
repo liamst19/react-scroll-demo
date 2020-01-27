@@ -22,7 +22,7 @@ function App() {
       <ScrollMarquee motionScale="0.5" text="rightward text motion."   direction="right" />
       </div>
       <SlideInBoxes />
-      <JapaneseText url="wagahai.json" />
+      {/* <JapaneseText url="wagahai.json" /> */}
     </div>
   );
 }
